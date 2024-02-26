@@ -31,7 +31,8 @@ const displayAuthors = (authors) => {
     <div id="${index}" class="user-card">
     <h2 class="author-name">${author}</h2>
   <img class= "user-img" src="${image}" alt="${author} avatar" >  
-<p class= "bio"> ${bio}</p>
+  <div class ="purple-divider"> </div>
+  <p class="bio">${bio.length > 50 ? bio.slice(0,50)+'...':bio}</p>
 <a class= "author-link" href="${url}" target="_blank">${author}'s author page</a>
     </div>
   `;
@@ -56,7 +57,12 @@ method will only return a certain portion of authors within the authorDataArr.
  - Line 23  will display the authors name and image on webpage .
  - line 24 will add the bio under the image we are using the p element to
  add in the bio 
- - Line 25 were adding a link that will open the authors page using the anchor element*/
+ - Line 25 were adding a link that will open the authors page using the anchor element
+ - line 35 in the p element we are using a terenary operator to check if the returned 
+ bio from the array is greater than 50 characters in length if it is we will use splice to cut
+ down the text of the bio so the bio isnt spilling out of the author card. if it is  less
+ than 50 characters we will just display the full bio.
+ */
   });
 };
 loadMoreBtn.addEventListener('click', fetchMoreAuthors);
