@@ -18,6 +18,8 @@ fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json')
 const fetchMoreAuthors = () => {
   startingIndex += 8;
   endingIndex += 8;
+  displayAuthors(authorDataArr.slice(startingIndex, endingIndex));
+
 };
 const displayAuthors = (authors) => {
   authors.forEach(({ author, image, url, bio }, index) => {
@@ -29,6 +31,7 @@ const displayAuthors = (authors) => {
 <a class= "author-link" href="${url}" target="_blank">${author}'s author page</a>
     </div>
   `;
+  loadMoreBtn.addEventListener('click', fetchMoreAuthors);
  /* code line 11 will assign the author data from
       the get request to the empty array authorDataArr */
 
@@ -50,3 +53,4 @@ method will only return a certain portion of authors within the authorDataArr.
  /* line 25 were adding a link back to the authors page using the anchor element*/
   });
 };
+loadMoreBtn.addEventListener('click', fetchMoreAuthors);
