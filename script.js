@@ -19,6 +19,10 @@ const fetchMoreAuthors = () => {
   startingIndex += 8;
   endingIndex += 8;
   displayAuthors(authorDataArr.slice(startingIndex, endingIndex));
+  if(authorDataArr.length <= endingIndex){
+    loadMoreBtn.disabled= true;
+    loadMoreBtn.textContent = "No more data to load" ; 
+  }
 
 };
 const displayAuthors = (authors) => {
@@ -33,9 +37,9 @@ const displayAuthors = (authors) => {
   `;
   loadMoreBtn.addEventListener('click', fetchMoreAuthors);
  /* code line 11 will assign the author data from
-      the get request to the empty array authorDataArr */
+      the get request to the empty array authorDataArr 
 
-/*line 12 were calling the displayAuthors function
+-Line 12 were calling the displayAuthors function
 then passing in the authorDataArr array then using slice() 
 method to cut down the amount of authors that will be displayed 
 to the page. Were passing in the startingIndex variable and 
@@ -45,12 +49,14 @@ authorDataArr which will store the data for all the authors.
 this step prevents the page from loading all the authors at once the slice 
 method will only return a certain portion of authors within the authorDataArr.
 
-  /* line 21 of code above will display the authors 
-  name pulled from the get request  */
- /* Line 23  will display the authors name and image on webpage */
- /*line 24 will add the bio under the image we are using the p element to
- add in the bio */
- /* line 25 were adding a link back to the authors page using the anchor element*/
+  - Line 21 of code above will display the authors 
+  name pulled from the get request  
+   -Line 22 if statement will disable the load more authors button once there 
+  are no more authors to display.
+ - Line 23  will display the authors name and image on webpage .
+ - line 24 will add the bio under the image we are using the p element to
+ add in the bio 
+ - Line 25 were adding a link that will open the authors page using the anchor element*/
   });
 };
 loadMoreBtn.addEventListener('click', fetchMoreAuthors);
