@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./register.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+            <h1>Login</h1>
+            <form onsubmit="submitForm(); return false;">
+                <div class="txt_field">
+                    <input type="text" name="text" required>
+                    <span></span>
+                    <label>Username</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" name="password" required>
+                    <span></span>
+                    <label>Password</label>
+                </div>
+                <div class="pass">Forget Password?</div>
+                <input name="submit" type="Submit" value="Login">
+                <div class="signup_link">
+                    Not a Member ? <a href="signup.php">Signup</a>
+                </div>
+            </form>
+        </div>
+      </div>
+
+
+    <script src="./register.js"></script>
+</body>
+</html>

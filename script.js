@@ -1,5 +1,18 @@
+ 
 const authorContainer = document.getElementById('author-container');
 const loadMoreBtn = document.getElementById('load-more-btn');
+
+if (onsubmit = true){
+      submitForm();
+}else {
+  window.location.href = "register.html"
+}
+
+let submitForm = ()=>
+   window.location.href = "index.html";
+
+
+
 
 let startingIndex = 0;
 let endingIndex = 8;
