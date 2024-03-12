@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,6 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
  const auth= getAuth(app);
 
+
 //input
 const email= document.getElementById('email').value;
 const password= document.getElementById('password').value;
@@ -28,11 +29,11 @@ submit.addEventListener("click",function(e){
   const email= document.getElementById('email').value;
 const password= document.getElementById('password').value;
 
-  createUserWithEmailAndPassword(auth, email, password)
+signInWithEmailAndPassword (auth, email, password)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-    alert("Account Created")
+    alert("Login Successful")
     window.location.href = "index.html"; ///this redirects the users to the book
     //authors page once they sign up.
     // ...
@@ -44,4 +45,3 @@ const password= document.getElementById('password').value;
     // ..
   });
 })
-
