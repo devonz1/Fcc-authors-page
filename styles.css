@@ -60,6 +60,13 @@
     color: var(--light-grey);
   }
   
+
+  .navig{
+    color: #ddd;
+     text-align: left ;
+    float: inline-start; 
+    margin-left:30px;
+  }
   .btn {
     cursor: pointer;
     width: 200px;
@@ -71,4 +78,35 @@
     background-image: linear-gradient(#868686, #2b2929);
      border-radius: 10px;
     border-width: 3px;
+  }
+  .topnav {
+    background-color: #000000;
+    overflow: hidden;
+     
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    height: 50px;
+    
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #eeea10;
+    color: rgb(0, 0, 0);
+    height: 50px;
+      
   }
