@@ -15,13 +15,26 @@
     --dark-purple: #2e2d2d;
     --golden-yellow: #feac32;
   }
+
+
   
   body {
     background-color: var(--main-bg-color);
     text-align: center;
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-  font-style: normal;
+    font-style: normal;
+  }
+
+  #searchInput{
+    height: 25px;
+    margin-top: 20px;
+    
+  }
+  .bt1{
+    color:white;
+    background-color: #2b2929;
+    height: 25px;
   }
   
   .title {
