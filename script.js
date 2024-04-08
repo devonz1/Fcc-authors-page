@@ -1,7 +1,7 @@
  
 const authorContainer = document.getElementById('author-container');
 const loadMoreBtn = document.getElementById('load-more-btn');
-
+const search = document.getElementById("searchInput");
 
 let startingIndex = 0;
 let endingIndex = 8;
@@ -16,7 +16,7 @@ fetch('https://cdn.freecodecamp.org/curriculum/news-author-page/authors.json')
   .catch((err) => {
     authorContainer.innerHTML =`<p class="error-msg">There was an error loading the authors</p>`
   });
-  
+ 
 const fetchMoreAuthors = () => {
   startingIndex += 8;
   endingIndex += 8;
@@ -39,7 +39,19 @@ const displayAuthors = (authors) => {
 <a class= "author-link" href="${url}" target="_blank">${author}'s author page</a>
     </div>
   `;
+  
   loadMoreBtn.addEventListener('click', fetchMoreAuthors);
+  console.log(search);
+   search.addEventListener("keyup", (e) =>{
+      const searchAuth= e.target.value;
+     const filterAuthors= authorDataArr.filter(author =>{
+        return  author.name.contain(searchAuth);
+      });
+   });
+
+  
+
+
  /* code line 11 will assign the author data from
       the get request to the empty array authorDataArr 
 
@@ -65,6 +77,15 @@ method will only return a certain portion of authors within the authorDataArr.
  bio from the array is greater than 50 characters in length if it is we will use splice to cut
  down the text of the bio so the bio isnt spilling out of the author card. if it is  less
  than 50 characters we will just display the full bio.
+
+ Line 46 were using an event listener to listen for the keyup event on the search 
+ element to check when the user  types something in the text area and releases a key   
+  event.target.value will tell us information about the event such as
+ the element that triggered the event and the dom element on which the event occured which would
+ be the search element. and the value proprerty referring to  what the user has typed into the search box 
+ would be our value in this case the text  inside the search bar.
+ 
+ 
  */
   });
 };
