@@ -3,6 +3,8 @@ const authorContainer = document.getElementById('author-container');
 const loadMoreBtn = document.getElementById('load-more-btn');
 const search = document.getElementById("searchInput");
 
+ 
+
 let startingIndex = 0;
 let endingIndex = 8;
 let authorDataArr = [];
@@ -29,7 +31,7 @@ const fetchMoreAuthors = () => {
 
 };
 const displayAuthors = (authors) => {
-  authors.forEach(({ author, image, url, bio }, index) => {
+  authors.map(({ author, image, url, bio }, index) => {
     authorContainer.innerHTML += `
     <div id="${index}" class="user-card">
     <h2 class="author-name">${author}</h2>
@@ -39,17 +41,20 @@ const displayAuthors = (authors) => {
 <a class= "author-link" href="${url}" target="_blank">${author}'s author page</a>
     </div>
   `;
-  
   loadMoreBtn.addEventListener('click', fetchMoreAuthors);
-  console.log(search);
+   
    search.addEventListener("keyup", (e) =>{
-      const searchAuth= e.target.value;
-     const filterAuthors= authorDataArr.filter(author =>{
-        return  author.name.contain(searchAuth);
+      const searchAuth= e.target.value.toLowerCase();
+      console.log(searchAuth)
+     const filterAuthors= authorDataArr.filter(data =>{
+        return (data.author.toLowerCase().includes(searchAuth)
+        );
+         
       });
+         
    });
 
-  
+   
 
 
  /* code line 11 will assign the author data from
