@@ -4,7 +4,7 @@ body{
     font-family: Roboto;
     background-repeat: no-repeat;
     background-size: cover;
-    background: linear-gradient(120deg, #0f0f0f, #ffffff);
+    background: linear-gradient(120deg, #464646, #ffffff);
     height: 100vh;
     overflow: hidden;
   }
@@ -22,7 +22,7 @@ body{
   .center h1{
     text-align: center;
     padding: 0 0 20px 0;
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid rgb(199, 198, 198);
   }
   
   .center form{
@@ -32,7 +32,7 @@ body{
   
   form .txt_field{
     position: relative;
-    border-bottom: 2px solid #adadad;
+    border-bottom: 2px solid #b3b3b3;
     margin: 30px 0;
   }
   

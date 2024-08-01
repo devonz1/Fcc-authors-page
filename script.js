@@ -34,28 +34,31 @@ const displayAuthors = (authors) => {
   authors.map(({ author, image, url, bio }, index) => {
     authorContainer.innerHTML += `
     <div id="${index}" class="user-card">
-    <h2 class="author-name">${author}</h2>
+    <h2 class="author-name">${author.length > 15 ? author.slice(0,15) +'..':author}</h2>
   <img class= "user-img" src="${image}" alt="${author} avatar" >  
   <div class ="purple-divider"> </div>
-  <p class="bio">${bio.length > 40 ? bio.slice(0,40)+'...':bio}</p>
+  <p class="bio">${bio.length > 40 ? bio.slice(0,38)+'...':bio}</p>
 <a class= "author-link" href="${url}" target="_blank">${author}'s author page</a>
     </div>
   `;
-  loadMoreBtn.addEventListener('click', fetchMoreAuthors);
-   
+  loadMoreBtn.addEventListener('click', fetchMoreAuthors);    
+         
+  });
+               
+   };
    search.addEventListener("keyup", (e) =>{
-      const searchAuth= e.target.value.toLowerCase();
-      console.log(searchAuth)
-     const filterAuthors= authorDataArr.filter(data =>{
-        return (data.author.toLowerCase().includes(searchAuth)
-        );
-         
-      });
-         
+    const searchAuth= e.target.value.toLowerCase();
+   const filterAuthors= authorDataArr.filter(authorDataArr =>{
+      return (authorDataArr.author.toLowerCase().includes(searchAuth)
+      );
    });
 
-   
-
+   let authorContainerChildCount = authorContainer.childNodes.length;
+   for (let i = 0; i < authorContainerChildCount; i++) {
+     authorContainer.removeChild(authorContainer.firstChild);
+   }  
+   displayAuthors(filterAuthors);
+  });
 
  /* code line 11 will assign the author data from
       the get request to the empty array authorDataArr 
@@ -92,6 +95,6 @@ method will only return a certain portion of authors within the authorDataArr.
  
  
  */
-  });
-};
+  
+
 loadMoreBtn.addEventListener('click', fetchMoreAuthors);
